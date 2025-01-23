@@ -1,52 +1,67 @@
 import 'package:flutter/material.dart';
 import 'package:chip_navigation_bar/chip_navigation_bar.dart';
 
-void main() => runApp(MyApp());
+void main() {
+  runApp(const MyApp());
+}
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: HomeScreen(),
-    );
-  }
+  State<MyApp> createState() => _MyAppState();
 }
 
-class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
-
-  @override
-  _HomeScreenState createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
+class _MyAppState extends State<MyApp> {
   int _currentIndex = 0;
 
-  final List<String> _pages = [
-    'Home Page',
-    'Search Page',
-    'Profile Page',
+  final List<ChipNavigationBarItem> _items = [
+    const ChipNavigationBarItem(
+      icon: Icons.home,
+      label: 'Home',
+      activeColor: Colors.blue,
+    ),
+    const ChipNavigationBarItem(
+      icon: Icons.favorite,
+      label: 'Favorites',
+      activeColor: Colors.red,
+    ),
+    const ChipNavigationBarItem(
+      icon: Icons.settings,
+      label: 'Settings',
+      activeColor: Colors.green,
+    ),
+    const ChipNavigationBarItem(
+      icon: Icons.info,
+      label: 'About',
+      activeColor: Colors.orange,
+    ),
   ];
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(title: Text('Chip Navigation Bar Example')),
-      body: Center(child: Text(_pages[_currentIndex])),
-      bottomNavigationBar: ChipNavigationBar(
-        items: [
-          ChipNavigationBarItem(icon: Icons.home, label: 'Home'),
-          ChipNavigationBarItem(icon: Icons.search, label: 'Search'),
-          ChipNavigationBarItem(icon: Icons.person, label: 'Profile'),
-        ],
-        currentIndex: _currentIndex,
-        onTap: (index) {
-          setState(() {
-            _currentIndex = index;
-          });
-        },
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text('Chip Navigation Example'),
+        ),
+        body: Container(
+          alignment: Alignment.center,
+          color: _items[_currentIndex].activeColor?.withValues(alpha: 0.2),
+          child: Text(
+            'Selected Page: ${_items[_currentIndex].label}',
+            style: const TextStyle(fontSize: 24),
+          ),
+        ),
+        bottomNavigationBar: ChipNavigationBar(
+          items: _items,
+          currentIndex: _currentIndex,
+          onTap: (index) {
+            setState(() {
+              _currentIndex = index;
+            });
+          },
+        ),
       ),
     );
   }
