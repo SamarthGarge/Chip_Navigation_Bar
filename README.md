@@ -7,6 +7,19 @@ A customizable chip-style navigation bar for Flutter.
 - Highly customizable
 - Smooth animations
 
+## Parameters of `ChipNavigationBar`
+
+| Parameter         | Type                | Description                                                             | Default Value      |
+|-------------------|---------------------|-------------------------------------------------------------------------|--------------------|
+| `items`           | `List<ChipNavigationBarItem>` | List of `ChipNavigationBarItem`.                                      | *Required*         |
+| `currentIndex`    | `int`              | Index of the currently selected item.                                   | *Required*         |
+| `onTap`           | `Function(int)`    | Callback function when an item is tapped.                               | *Required*         |
+| `backgroundColor` | `Color`            | Optional background color of the navigation bar.                        | `null`             |
+| `height`          | `double`           | Height of the navigation bar.                                           | `56.0`             |
+| `pageColors`      | `List<Color>`      | Optional list of colors for each page.                                  | `null`             |
+| `width`           | `double`           | Optional width of the navigation bar.                                   | `null`             |
+
+
 ## Usage
 
 ```dart
