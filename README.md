@@ -62,7 +62,7 @@ flutter pub get
 | `activeColor`           | `Color`           |     Background color of the selected item.                               | *Required*             |
 | `inactiveIconColor`           | `Color`           |    Color of the icon when the item is not selected.                                | `Colors.grey`             |
 | `activeIconColor`           | `Color`           |       Color of the icon when the item is selected.                             | `Colors.white`             |
-| `activeLabelColor	`           | `Color`           |       Color of the label when the item is selected.                             | `Colors.white`             |
+| `activeLabelColor`           | `Color`           |       Color of the label when the item is selected.                             | `Colors.white`             |
 
 
 
